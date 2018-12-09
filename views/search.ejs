@@ -9,7 +9,6 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.13/css/mdb.min.css" rel="stylesheet">
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script src ="routes/index.js"></script>
 </head>
 <body class = "container">
 <div id = "included-javascript">
@@ -22,12 +21,18 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.13/js/mdb.min.js"></script>
 </div>
+<hr class = "my-4">
 <div class = "container">
-    <hr class = "my-4">
-    <div class="jumbotron">
-        <span><h1 class = "display-4">Search</h1></span>
+    <div class="h-25 d-flex align-items-center">
+        <span><h1 class = "display-auto">Search</h1></span>
         <span><input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="pizza..."></span>
-        <span><button id = "SUBMIT-ID" type="button" class="btn btn-primary">Search</button></span>
+        <span><button type="button" class="btn btn-primary">Search</button></span>
+    </div>
+    <hr class = "my-4">
+    <div class="card card-body border-primary mh-100 ">
+        <div id="output">
+
+        </div>
     </div>
     <hr class = "my-4">
 </div>

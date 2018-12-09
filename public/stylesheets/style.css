@@ -5,4 +5,16 @@ body {
 a {
   color: #00B7FF; }
 
+.row-centered {
+  text-align: center; }
+
+.col-centered {
+  display: inline-block;
+  float: none;
+  text-align: left;
+  margin-right: -4px;
+  text-align: center;
+  background-color: #ccc;
+  border: 1px solid #ddd; }
+
 /*# sourceMappingURL=style.css.map */
