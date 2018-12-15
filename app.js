@@ -52,8 +52,8 @@ app.use(sassMiddleware({
 
 // MONGOOSE SETUP
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-mongoose.connect("mongodb://hammad:test123@ds029824.mlab.com:29824/355-search-engine", { useNewUrlParser: true });
-//mongoose.connect("mongodb://localhost:27017/355-search-engine", {useNewUrlParser: true});
+//mongoose.connect("mongodb://hammad:test123@ds029824.mlab.com:29824/355-search-engine", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost:27017/355-search-engine", {useNewUrlParser: true});
 mongoose.connection.once('open', () => {
     console.log("connected to database");
 });

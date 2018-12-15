@@ -16,21 +16,25 @@ function queryCrawler(query){
                     return;
                 }else{
                     var $ = result.$;
+                    if(typeof $ !== 'function') return;
                     var page = result.body;
-
-                    var res = count(query, page);
-                    if(res > 0){
-                        if(typeof $ !== 'function') return
-                        // console.log(result.request.uri.href);
-                        // console.log($("title").text());
-                        temp.push({
-                          url: result.request.uri.href,
-                          title: $("title").text(),
-                          relevancy: res
-                        })
-
+                    var lang = $(result.body).closest('[lang]').attr('lang') || 'en';
+                    console.log(lang);
+                    if(lang.includes('en')){
+                        var res = count(query, page);
+                        if(res > 0){
+                            if(typeof $ !== 'function') return
+                            // console.log(result.request.uri.href);
+                            // console.log($("title").text());
+                            var desc = $('meta[name="description"]').attr('content') || "[ No Description Available ... ]";
+                            temp.push({
+                                url: result.request.uri.href,
+                                title: $("title").text(),
+                                desc: desc,
+                                relevancy: res
+                            })
+                        }
                     }
-
                     depth++;
 
                     if(typeof $ !== 'function') return

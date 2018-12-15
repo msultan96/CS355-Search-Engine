@@ -8,7 +8,6 @@ var Search = require('../models/Search');
 var queryCrawler = require('../helpers/crawler');
 require('../models/Search');
 const search = mongoose.model('Search');
-const ids = require('../models/IDs');
 
 router.get('/search/:query', function(req, res, next) {
     const { query } = req.params;
