@@ -8,10 +8,23 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.13/css/mdb.min.css" rel="stylesheet">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script src ="routes/index.js"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/stylesheets/custom.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
-<body class = "container">
+<body class="bg-gradient-light d-flex">
+<div class = "container align-self-center">
+    <div class="jumbotron bg-dark text-white shadow-lg d-block align-self-center">
+        <div class="col-8 mx-auto">
+            <h1 class = "display-4 text-center disable-select justify-content-">C S 3 5 5 </h1>
+            <form method="post" action="/api/search/">
+                <input class="form-control form-rounded mb-3" type="text" name="query" placeholder="Enter your search query here . . .">
+                <button id = "SUBMIT-ID" type="submit" class="btn btn-primary btn-lg btn-block">Search</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
 <div id = "included-javascript">
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -21,16 +34,9 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.13/js/mdb.min.js"></script>
+
+    <!-- Search Handling -->
+    <script type="text/javascript" src="/javascripts/IndexSearchHandling.js"></script>
 </div>
-<div class = "container">
-    <hr class = "my-4">
-    <div class="jumbotron">
-        <span><h1 class = "display-4">Search</h1></span>
-        <span><input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="pizza..."></span>
-        <span><button id = "SUBMIT-ID" type="button" class="btn btn-primary">Search</button></span>
-    </div>
-    <hr class = "my-4">
-</div>
-</body>
 </html>
 

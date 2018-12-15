@@ -1,20 +1,17 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  height: 100vh; }
 
 a {
   color: #00B7FF; }
 
-.row-centered {
-  text-align: center; }
+.btn-rounded {
+  border-radius: 1rem; }
 
-.col-centered {
-  display: inline-block;
-  float: none;
-  text-align: left;
-  margin-right: -4px;
-  text-align: center;
-  background-color: #ccc;
-  border: 1px solid #ddd; }
+.disable-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
 
 /*# sourceMappingURL=style.css.map */

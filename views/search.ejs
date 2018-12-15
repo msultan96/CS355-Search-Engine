@@ -8,10 +8,28 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.13/css/mdb.min.css" rel="stylesheet">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/stylesheets/custom.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
-<body class = "container">
-<div id = "included-javascript">
+<body class="bg-gradient-light d-block">
+<div class = "fixed-top">
+    <div class="sticky-top navbar navbar-dark bg-dark text-white d-flex flex-nowrap align-items-start">
+        <div class = "p-2 d-none d-sm-block disable-select"><h2><small class = "lead">C S 3 5 5 </small></h2></div>
+        <div class = "p-2 col-8 mx-auto align-self-center"><input class = "form-control" type="text" placeholder="Enter your search query here . . ."></div>
+        <div class = "p-2 align-self-end"><button id = "SUBMIT-ID" type="button" class="btn btn-primary">Search</button></div>
+
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="card card-body border-primary mh-100 ">
+        <div id="output">
+            <p class="lead text-left">Results pending . . . </p>
+        </div>
+    </div>
+</div>
+</body>
+<div id = "included-javascript" class="d-none">
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Bootstrap tooltips -->
@@ -20,22 +38,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.13/js/mdb.min.js"></script>
+    <!-- Search Handling -->
+    <script type="text/javascript" src="/javascripts/IndexSearchHandling.js"></script>
 </div>
-<hr class = "my-4">
-<div class = "container">
-    <div class="h-25 d-flex align-items-center">
-        <span><h1 class = "display-auto">Search</h1></span>
-        <span><input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="pizza..."></span>
-        <span><button type="button" class="btn btn-primary">Search</button></span>
-    </div>
-    <hr class = "my-4">
-    <div class="card card-body border-primary mh-100 ">
-        <div id="output">
-
-        </div>
-    </div>
-    <hr class = "my-4">
-</div>
-</body>
 </html>
 
