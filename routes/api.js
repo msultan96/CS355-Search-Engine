@@ -6,6 +6,8 @@ var mongoose = require('mongoose');
 var cors = require('cors');
 var Search = require('../models/Search');
 var queryCrawler = require('../helpers/crawler');
+require('../models/Search');
+const search = mongoose.model('Search');
 
 /*
 router.use(function(req, res, next){
@@ -95,13 +97,22 @@ router.get('/search/:query', cors(), function(req, res) {
 
 router.get('/search/:query', function(req, res, next) {
     const { query } = req.params;
-    queryCrawler(query)
-        .then(() => {
-            res.render('search', { title: 'CS355 Search' });
-        })
-        .catch(() => {
-            res.send('crawler screwed up');
-        })
+    search.find({ name: query },
+       function(err, data) {
+         if(data.length > 0){
+           //pull from datqbase
+           console.log(data.length);
+         } else {
+           //crawl
+           queryCrawler(query)
+               .then(() => {
+                   res.render('search', { title: 'CS355 Search' });
+               })
+               .catch(() => {
+                   res.send('crawler screwed up');
+               })
+         }
+    });
 });
 
 module.exports = router;
