@@ -16,15 +16,13 @@ router.get('/search/:query', function(req, res, next) {
        function(err, data) {
          if(data.length > 0){
            //pull from datqbase
-           console.log(data.length);
+           console.log("Already in database");
+           //get array of links from database at data[0].links and send value out to ejs and iterate through loop to post
          } else {
-             // ids.create({
-             //     searchID: 123,
-             //     linkID: 456
-             // });
-
-
-           //crawl
+           search.create({
+             name: query,
+             links: []
+           })
            queryCrawler(query)
                .then(() => {
                    res.render('search', { title: 'CS355 Search' });
