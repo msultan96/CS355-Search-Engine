@@ -52,8 +52,8 @@ app.use(sassMiddleware({
 
 // MONGOOSE SETUP
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-//mongoose.connect("mongodb://hammad:test123@ds029824.mlab.com:29824/355-search-engine", { useNewUrlParser: true });
-mongoose.connect("mongodb://localhost:27017/355-search-engine", {useNewUrlParser: true});
+mongoose.connect("mongodb://hammad:test123@ds029824.mlab.com:29824/355-search-engine", { useNewUrlParser: true });
+//mongoose.connect("mongodb://localhost:27017/355-search-engine", {useNewUrlParser: true});
 mongoose.connection.once('open', () => {
     console.log("connected to database");
 });
@@ -79,13 +79,13 @@ module.exports = app;
 
 // ERROR HANDLING
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-/*
-catch 404 and forward to error handler
+
+//catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-error handler
+//error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
@@ -99,5 +99,3 @@ app.use(function(err, req, res, next) {
 app.listen(3000, () => {
   console.log('listening to port 3000');
 });
-*/
-
