@@ -85,6 +85,16 @@ module.exports = queryCrawler;
 var Crawler = require("crawler");
 var validUrl = require('valid-url');
 const mongoose = require('mongoose');
+require('../models/Search');
+const search = mongoose.model('Search');
+const testing = "Test";
+// search.findById("5c143bbefb6fc04dd6ed4df6", function(err, res) {
+//    if (res === null) {
+//       console.log("No student found");
+//    } else {
+//       console.log(res.name);
+//    }
+// });
 
 function queryCrawler(query){
     return new Promise((resolve, reject) => {
