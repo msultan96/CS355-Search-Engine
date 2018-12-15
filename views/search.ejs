@@ -17,7 +17,11 @@
     <div class="sticky-top navbar navbar-dark bg-dark text-white d-flex flex-nowrap align-items-start">
         <div class = "p-2 d-none d-sm-block disable-select"><h2><small class = "lead">C S 3 5 5 </small></h2></div>
         <div class = "p-2 col-8 mx-auto align-self-center"><input class = "form-control" type="text" placeholder="Enter your search query here . . ."></div>
-        <div class = "p-2 align-self-end"><button id = "SUBMIT-ID" type="button" class="btn btn-primary">Search</button></div>
+        <div class = "p-2 align-self-end">
+            <form method="post" action="/api/search/">
+                <button id = "SUBMIT-ID" type="button" class="btn btn-primary">Search</button>
+            </form>
+        </div>
 
     </div>
 </div>
