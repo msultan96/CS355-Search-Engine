@@ -55,7 +55,7 @@ function queryCrawler(query){
             }
         });
 
-        var link = `https://en.wikipedia.org/wiki/${encodeURIComponent(query)}`;
+        var link = `https://en.wikipedia.org/w/index.php?search=${encodeURIComponent(query)}`;
         console.log(`link = ${link}`)
         c.queue(link);
     })
