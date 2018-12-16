@@ -15,15 +15,9 @@ router.get('/search/:query', function(req, res, next) {
     search.find({ name: query },
        function(err, data) {
          if(data.length > 0){
-           //pull from datqbase
            console.log("Already in database");
-           //get array of links from database at data[0].links and send value out to ejs and iterate through loop to post
-           var arr = data[0].links;
-           arr.sort((a,b) => (a.relevancy > b.relevancy) ? -1 : ((b.relevancy > a.relevancy) ? 1 : 0));
-           display(arr);
-           // arr.map(function(element) {
-           //   console.log(element.url);
-           // })
+           display(query);
+           res.render('search', { title: 'CS355 Search' });
          } else {
            search.create({
              name: query,
@@ -31,7 +25,8 @@ router.get('/search/:query', function(req, res, next) {
            })
            queryCrawler(query)
                .then(() => {
-                   res.render('search', { title: 'CS355 Search' });
+                 display(query);
+                 res.render('search', { title: 'CS355 Search' });
                })
                .catch(() => {
                    res.send('crawler screwed up');
