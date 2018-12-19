@@ -1,4 +1,54 @@
 $enable-gradients: true;
 $enable-shadows: true;
 
+$display5-size: 3.0rem !default;
+$display6-size: 2.5rem !default;
+$display7-size: 2.0rem !default;
+$display8-size: 1.5rem !default;
+$display9-size: 1.0rem !default;
+$display10-size: 0.5rem !default;
+
+$display5-weight: 300 !default;
+$display6-weight: 300 !default;
+$display7-weight: 300 !default;
+$display8-weight: 300 !default;
+$display9-weight: 300 !default;
+$display10-weight: 300 !default;
+
+.display-5 {
+  font-size: $display5-size;
+  font-weight: $display5-weight;
+  line-height: $display-line-height;
+}
+
+.display-6 {
+  font-size: $display6-size;
+  font-weight: $display6-weight;
+  line-height: $display-line-height;
+}
+.display-7 {
+  font-size: $display7-size;
+  font-weight: $display7-weight;
+  line-height: $display-line-height;
+}
+
+
+.display-8 {
+  font-size: $display8-size;
+  font-weight: $display8-weight;
+  line-height: $display-line-height;
+}
+
+.display-9 {
+  font-size: $display9-size;
+  font-weight: $display9-weight;
+  line-height: $display-line-height;
+}
+
+.display-10 {
+  font-size: $display10-size;
+  font-weight: $display10-weight;
+  line-height: $display-line-height;
+}
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
