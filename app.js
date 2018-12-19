@@ -12,6 +12,8 @@ var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 var Search = require('./models/Search');
 var crawler = require('./helpers/crawler');
+var cheerio = require('cheerio');
+var fs = require('fs');
 
 // PATHS + VIEW ENGINE SETUP
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -52,8 +54,8 @@ app.use(sassMiddleware({
 
 // MONGOOSE SETUP
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-mongoose.connect("mongodb://hammad:test123@ds029824.mlab.com:29824/355-search-engine", { useNewUrlParser: true });
-//mongoose.connect("mongodb://localhost:27017/355-search-engine", {useNewUrlParser: true});
+//mongoose.connect("mongodb://hammad:test123@ds029824.mlab.com:29824/355-search-engine", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost:27017/355-search-engine", {useNewUrlParser: true});
 mongoose.connection.once('open', () => {
     console.log("connected to database");
 });
@@ -93,7 +95,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', { title: 'CS355 Search ' + err.status });
 });
 
 app.listen(3001, () => {

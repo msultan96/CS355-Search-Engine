@@ -28,7 +28,16 @@
 <div class="container mt-5">
     <div class="card card-body border-primary mh-100 ">
         <div id="output">
-            <p class="lead text-left">Results pending . . . </p>
+            <div class = "d-flex flex-column mb-3">
+                <% data.map(function(element){ %>
+                <div>
+                    <a href = "<%= element.url%>"><%= element.title%></a>
+                    <p class="ml-5 text-muted">
+                        <%= element.desc %>
+                    </p>
+                </div>
+                <%}); %>
+            </div>
         </div>
     </div>
 </div>

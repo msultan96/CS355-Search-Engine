@@ -9,6 +9,9 @@ var queryCrawler = require('../helpers/crawler');
 require('../models/Search');
 const search = mongoose.model('Search');
 var display = require('../helpers/displayData');
+var cheerio = require('cheerio');
+
+var temp = [];
 
 router.get('/search/:query', function(req, res, next) {
     const { query } = req.params;
@@ -16,8 +19,9 @@ router.get('/search/:query', function(req, res, next) {
        function(err, data) {
          if(data.length > 0){
            console.log("Already in database");
-           display(query);
-           res.render('search', { title: 'CS355 Search' });
+             temp = display(query);
+             console.log(temp);
+             res.render('search', { title: 'CS355 Search', data: temp });
          } else {
            search.create({
              name: query,
@@ -25,8 +29,13 @@ router.get('/search/:query', function(req, res, next) {
            })
            queryCrawler(query)
                .then(() => {
-                 display(query);
-                 res.render('search', { title: 'CS355 Search' });
+                 //res.render('search', { title: 'CS355 Search' });
+                    var blank = [];
+                    temp = blank;
+                   temp = display(query);
+                   res.redirect('/api/search/'+query);
+
+                   //res.render('search', { title: 'CS355 Search', data: temp });
                })
                .catch(() => {
                    res.send('crawler screwed up');
