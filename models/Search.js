@@ -8,7 +8,9 @@ var searchSchema = new schema({
         title: String,
         desc: String,
         relevancy: Number,
-    }]
+    }],
+    date: {type : Date, default: Date.now},
+    timeTaken: { type: Number}
 }, {
     collection: 'Search'
 });
