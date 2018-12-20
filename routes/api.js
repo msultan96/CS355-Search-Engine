@@ -13,6 +13,11 @@ var cheerio = require('cheerio');
 
 var temp = [];
 
+function parseHrtimeToSeconds(hrtime) {
+    var seconds = (hrtime[0] + (hrtime[1] / 1e9)).toFixed(3);
+    return seconds;
+}
+
 router.get('/search/:query', function(req, res, next) {
     const { query } = req.params;
     search.find({ name: query },
@@ -26,10 +31,10 @@ router.get('/search/:query', function(req, res, next) {
                     name: query,
                     links: [],
                 })
-                // console.time();
+                // var startTime = process.hrtime();
                 queryCrawler(query)
                     .then(() => {
-                        // var elapsed = console.timeEnd();
+                         // var elapsed = parseHrtimeToSeconds(process.hrtime(startTime));
                         // search.findOneAndUpdate({ name:query },
                         //     { time: elapsed },
                         //     function(err, stu) {
