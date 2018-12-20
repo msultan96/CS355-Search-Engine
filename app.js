@@ -98,6 +98,8 @@ app.use(function(err, req, res, next) {
   res.render('error', { title: 'CS355 Search ' + err.status });
 });
 
-app.listen(3001, () => {
-  console.log('listening to port 3000');
+
+const PORT = process.env.PORT || 3001
+app.listen(PORT, () => {
+  console.log(`listening to port ${PORT}`);
 });
