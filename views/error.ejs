@@ -17,15 +17,22 @@
     <div class="jumbotron bg-dark text-white shadow-lg d-block align-self-center disable-select text-center">
         <div class="text-center">
             <h1 class = "display-4">O O P S</h1>
-            <h4 class = "text-center d-none d-sm-block"
-                style = "font-size: 1.5rem; font-weight: 300; ">
-                We've come across a <mark><%= error.status%></mark> error!</h4>
-            <h4 class = "text-center d-sm-none"
-                style = "font-size: 1.5rem; font-weight: 300; ">
-                We've come across a <%= error.status%> error!</h4>
+            <% console.log(error.status) %>
+            <%if (error.status === undefined) {%>
+                <h4 class = "text-center"
+                    style = "font-size: 1.5rem; font-weight: 300; ">
+                    Something seems to have gone wrong!</h4>
+            <%} else { %>
+                <h4 class = "text-center d-none d-sm-block"
+                    style = "font-size: 1.5rem; font-weight: 300; ">
+                    We've come across a <mark><%= error.status%></mark> error!</h4>
+                <h4 class = "text-center d-sm-none"
+                    style = "font-size: 1.5rem; font-weight: 300; ">
+                    We've come across a <%= error.status %> error!</h4>
+            <%} %>
         </div>
         <div class ="lead">
-            <%if (error.status == "400") { %>
+            <% if (error.status == "400") { %>
                 <p>This is a <strong>Bad Request</strong> error! You might have gotten this error because of the following: </p>
                 <ol>
                     <li>You may need to clear your browsers cache</li>

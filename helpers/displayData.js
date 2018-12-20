@@ -11,11 +11,6 @@ function display(query){
             } else {
                 temp = stu.links;
                 temp.sort((a,b) => (a.relevancy > b.relevancy) ? -1 : ((b.relevancy > a.relevancy) ? 1 : 0));
-
-                temp.map(function(element){
-                    //write jquery here
-                    //console.log(element.url);
-                })
             }
         });
     return temp;

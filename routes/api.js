@@ -16,32 +16,37 @@ var temp = [];
 router.get('/search/:query', function(req, res, next) {
     const { query } = req.params;
     search.find({ name: query },
-       function(err, data) {
-         if(data.length > 0){
-           console.log("Already in database");
-             temp = display(query);
-             console.log(temp);
-             res.render('search', { title: 'CS355 Search', data: temp });
-         } else {
-           search.create({
-             name: query,
-             links: []
-           })
-           queryCrawler(query)
-               .then(() => {
-                 //res.render('search', { title: 'CS355 Search' });
-                    var blank = [];
-                    temp = blank;
-                   temp = display(query);
-                   res.redirect('/api/search/'+query);
+        function(err, data) {
+            if(data.length > 0){
+                console.log("Already in database");
+                temp = display(query);
+                res.render('search', { title: 'CS355 Search', data: temp});
+            } else {
+                search.create({
+                    name: query,
+                    links: [],
+                })
+                // console.time();
+                queryCrawler(query)
+                    .then(() => {
+                        // var elapsed = console.timeEnd();
+                        // search.findOneAndUpdate({ name:query },
+                        //     { time: elapsed },
+                        //     function(err, stu) {
+                        //     });
+                        //res.render('search', { title: 'CS355 Search' });
+                        var blank = [];
+                        temp = blank;
+                        temp = display(query);
+                        res.redirect('/api/search/'+query);
 
-                   //res.render('search', { title: 'CS355 Search', data: temp });
-               })
-               .catch(() => {
-                   res.send('crawler screwed up');
-               })
-         }
-    });
+                        //res.render('search', { title: 'CS355 Search', data: temp });
+                    })
+                    .catch(() => {
+                        res.send('crawler screwed up');
+                    })
+            }
+        });
 });
 
 module.exports = router;

@@ -23,6 +23,7 @@ app.use(express.static(path.join(__dirname, 'helpers')));
 app.use(express.static(path.join(__dirname, 'public/javascripts/')));
 app.use(express.static(path.join(__dirname, 'public/stylesheets/')));
 app.use(express.static(path.join(__dirname, 'public/stylesheets/')));
+app.use(express.static(path.join(__dirname, 'node_modules/')));
 app.set('models', path.join(__dirname, 'models'));
 app.set('helpers', path.join(__dirname, 'helpers'));
 app.set('views', path.join(__dirname, 'views'));
@@ -35,7 +36,7 @@ app.use(bodyParser.json());
 
 app.post("/api/search", function(req, res) {
     var search = req.body.query;
-    res.writeHead(301,{Location:'/api/search/'+search});
+    res.writeHead(301,{Location:'/api/search/'+search, data: req.body.query});
     res.end();
 });
 
@@ -54,8 +55,8 @@ app.use(sassMiddleware({
 
 // MONGOOSE SETUP
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-mongoose.connect("mongodb://hammad:test123@ds029824.mlab.com:29824/355-search-engine", { useNewUrlParser: true });
-// mongoose.connect("mongodb://localhost:27017/355-search-engine", {useNewUrlParser: true});
+//mongoose.connect("mongodb://hammad:test123@ds029824.mlab.com:29824/355-search-engine", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost:27017/355-search-engine", {useNewUrlParser: true});
 mongoose.connection.once('open', () => {
     console.log("connected to database");
 });

@@ -6,6 +6,7 @@
     "start": "nodemon app.js"
   },
   "dependencies": {
+    "async": "^2.6.1",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.1.3",
     "cheerio": "^1.0.0-rc.2",
@@ -26,6 +27,7 @@
     "nodemon": "^1.18.8",
     "popper.js": "^1.14.6",
     "sass": "^1.15.2",
+    "startbootstrap-scrolling-nav": "^4.1.1",
     "valid-url": "^1.0.9"
   }
 }
